@@ -23,10 +23,8 @@ public class PlaneBehaviour : MonoBehaviour
     {
         foreach (var touch in Input.touches)
         {
-            
             Vector2 touchPosition = new Vector2(camera.ScreenToWorldPoint(touch.position).x, -4.0f);
             transform.position = touchPosition;
-
         }
     }
 
