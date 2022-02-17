@@ -5,6 +5,8 @@ using UnityEngine;
 public class OceanBehaviour : MonoBehaviour
 {
     public float verticalSpeed;
+    public Boundary boundary;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,10 +17,26 @@ public class OceanBehaviour : MonoBehaviour
     void Update()
     {
         Move();
+        Checkbounds();
     }
 
     public void Move()
     {
-        transform.position = transform.position + new Vector2(0.0f, verticalSpeed);
+        Vector2 currentPosition = transform.position;
+        currentPosition += new Vector2(0.0f, verticalSpeed);
+        transform.position = currentPosition;
+    }
+
+    public void Checkbounds()
+    {
+        if (transform.position.y < boundary.bottom)
+        {
+            ResetObject();
+        }
+    }
+
+    public void ResetObject()
+    {
+        transform.position = new Vector2(0.0f, boundary.top);
     }
 }
