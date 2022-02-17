@@ -7,6 +7,8 @@ public class CloudBehaviour : MonoBehaviour
     public float verticalSpeed;
     public float horizontalSpeed;
     public Boundary boundary;
+    public Boundary speeds;
+    public AudioSource thunderSound;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +43,7 @@ public class CloudBehaviour : MonoBehaviour
         float randomXposition = Random.Range(boundary.left, boundary.right);
         float randomYposition = Random.Range(boundary.top, boundary.top + 3.0f);
         transform.position = new Vector2(randomXposition, randomYposition);
-        verticalSpeed = Random.Range(-0.015f, -0.01f);
-        horizontalSpeed = Random.Range(-0.005f, 0.005f);
+        verticalSpeed = Random.Range(speeds.bottom, speeds.top);
+        horizontalSpeed = Random.Range(speeds.left, speeds.right);
     }
 }

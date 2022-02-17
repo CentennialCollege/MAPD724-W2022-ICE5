@@ -42,4 +42,17 @@ public class PlaneBehaviour : MonoBehaviour
             transform.position = new Vector2(boundary.left, -4.0f);
         }
     }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Cloud"))
+        {
+            other.gameObject.GetComponent<CloudBehaviour>().thunderSound.Play();
+        }
+
+        if (other.gameObject.CompareTag("Island"))
+        {
+            other.gameObject.GetComponent<IslandBehaviour>().yaySound.Play();
+        }
+    }
 }

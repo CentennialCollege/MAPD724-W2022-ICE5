@@ -6,6 +6,7 @@ public class IslandBehaviour : MonoBehaviour
 {
     public float verticalSpeed;
     public Boundary boundary;
+    public AudioSource yaySound;
 
     // Start is called before the first frame update
     void Start()
